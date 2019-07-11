@@ -84,7 +84,7 @@ _Learning Goals: Order the results of your queries by using ORDER BY (ASC & DESC
 0.5 point(s): Use the `JOIN` on the appropriate columns (`pokemon.type2` and `types.name`)
 
 _Learning Goals: Query data using one-to-many and many-to-many joins._
-
+***
 0.25 point(s): Correctly use the `COUNT`, `MIN` and `MAX` aggregator
 
 0.25 point(s): Correctly use the `JOIN` on `pokemon.type1` and `types.name`
