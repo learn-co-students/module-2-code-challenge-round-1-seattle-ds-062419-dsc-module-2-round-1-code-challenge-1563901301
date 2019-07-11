@@ -1,8 +1,7 @@
 # Mod 2 Assessment Rubric
 
-## Pokemon
 
-#### Section 12: Accessing Data through APIs
+### Section 12: Accessing Data through APIs
 
 Point Value: 3
 
@@ -23,7 +22,7 @@ Point Value: 2
 _Learning Goals: Using pagination and multiple functions, gather large amounts of data from an API, parse the data and make sense of it with meaningful analysis._
 
 ***
-#### Section 10: Object Oriented Programming
+### Section 10: Object Oriented Programming
 
 Point Value: 1.5
 
@@ -52,7 +51,7 @@ _Learning Goals: Define and access instance attributes. Define and call an insta
 
 
 ***
-#### Section 9: SQL and Relational Databases
+### Section 9: SQL and Relational Databases
 
 Point Value: 5
 
@@ -98,6 +97,6 @@ _Learning Goals: Limit the number of records returned by a query using LIMIT._
 ***
 
 
-#### Section 13: HTML, CSS and Web Scraping
+### Section 13: HTML, CSS and Web Scraping
 
-#### Section 15: Other Database Structures
+### Section 15: Other Database Structures
