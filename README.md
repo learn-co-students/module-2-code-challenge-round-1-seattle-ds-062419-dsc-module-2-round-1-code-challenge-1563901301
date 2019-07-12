@@ -300,15 +300,6 @@ soup = BeautifulSoup(html_page.content, 'html.parser')
 
 ```
 
-
-```python
-""" SOLUTION: data for one author """
-
-author = soup.find('small')
-author.find_next_siblings()[0].get('href')
-(author.text, author.find_next_siblings()[0].get('href'))
-```
-
 2. Write a function to get **all** the authors and href links for the authors from the [homepage](http://quotes.toscrape.com/)
 
 
@@ -322,22 +313,6 @@ def authors(url):
             {'author_1':'url_of_author_1', 'author_2':'url_of_author_2' ...}
     '''
     pass
-```
-
-
-```python
-""" SOLUTION: data for all the authors on a page """
-
-def authors(url):
-    # Make a get request to retrieve the page
-    html_page = requests.get(url) 
-    # Pass the page contents to beautiful soup for parsing
-    soup = BeautifulSoup(html_page.content, 'html.parser')
-    authors = soup.find_all('small')
-    author_dictionary = {}
-    for author in authors:
-        author_dictionary[author.text] = author.find_next_siblings()[0].get('href')
-    return author_dictionary
 ```
 
 
@@ -359,17 +334,6 @@ print(authors('http://quotes.toscrape.com/page/3'))
 
 ```
 
-
-```python
-""" SOLUTION: get_some_quotes """
-
-for i in range(1,6):
-    html_page = requests.get(f'http://quotes.toscrape.com/page/{i}/')
-    soup = BeautifulSoup(html_page.content, 'html.parser')
-    author = soup.find('small')
-    print(author.text)
-```
-
 4. Write a function to get all of the quotes from a page.
 
 
@@ -383,27 +347,6 @@ def get_some_quotes(url):
             {'quote':'quote_2_text', 'author':'url_of_author_2', 'quote_tags':[list_of_quote_2_tags]}, ...]
     '''
     pass
-```
-
-
-```python
-""" SOLUTION: get_some_quotes """
-
-def get_some_quotes(url):
-    # Make a get request to retrieve the page
-    html_page = requests.get(url) 
-    # Pass the page contents to beautiful soup for parsing
-    soup = BeautifulSoup(html_page.content, 'html.parser')
-        
-    list_quotes = []
-    for i in soup.find_all(class_="quote"):
-        quotes = {}
-        quote = (i.find(class_="text").text)
-        quotes['quote'] = quote
-        list_quotes.append(quotes)
-        author = i.find(class_ = "author").text
-        quotes['author'] = author
-    return list_quotes
 ```
 
 
@@ -436,8 +379,8 @@ mycollection = mydb['quote_collection']
 ```python
 # if not using  the get_some_quotes function read in the JSON file and set it to variable data
 
-with open(r"data/quotes.json", "r") as r:
-    data = json.load(r)
+# with open(r"data/quotes.json", "r") as r:
+#     data = json.load(r)
 ```
 
 
@@ -446,34 +389,11 @@ with open(r"data/quotes.json", "r") as r:
 results = None
 ```
 
-
-```python
-""" SOLUTION:  for adding data in the database"""
-
-### add the data from the JSON file
-results = mycollection.insert_many(data)
-
-### add the data from the get_some_quotes function
-# results = mycollection.insert_many(quotes_for_mongo)
-
-# check they are in the database
-results.inserted_ids
-```
-
 2. Query the database for all the quotes by `'Albert Einstein'`.
 
 
 ```python
 q1 = None
-```
-
-
-```python
-""" SOLUTION: data for Albert Einstein quotes """
-
-q1 = mycollection.find({'author':'Albert Einstein'})
-for x in q1:
-    print(x)
 ```
 
 3. Update Steve Martin's quote with the tags for the quote stored in the variable `steve_martin_tags`.
@@ -486,28 +406,9 @@ first_quote_tags = None
 
 ```
 
-
-```python
-""" SOLUTION: data for Steve Martin tags """
-
-update_steve = {'author': 'Steve Martin'}
-steve_quote_tags = {'$set':steven_martin_tags}
-
-mycollection.update_one(update_steve, steve_quote_tags)
-```
-
 4. Query the database to confirm that  `'Steve Martin'` is updated with `steve_martin_tags`.
 
 
 ```python
 q2 = None
-```
-
-
-```python
-""" SOLUTION: data for Steve Martin tags query """
-
-q2 = mycollection.find({'author': 'Steve Martin'})
-for item in q2:
-    print(item)
 ```
