@@ -44,7 +44,7 @@ results
 
 ### Accessing Data
 
-1. For any **one** Pokemon, retrive the following information in a dictionary format with the following keys:
+1. For any **one** Pokemon, retrieve the following information in a dictionary format with the following keys:
     - ID
     - Name
     - Base experience
@@ -220,7 +220,7 @@ print_pokeinfo(venusaur)
 
 ```python
 # run this cell to test and check your code
-# you probably have to rerun the code to instantiate your objects
+# you will probably have to rerun the code to instantiate your objects
 
 print(bulbasaur.bmi()) # 14.08
 print(charmander.bmi()) # 23.61
@@ -235,10 +235,18 @@ For this section, we've put the Pokemon data into SQL tables. You won't need to 
 
 Assign your SQL queries as strings to the variables `q1`, `q2`, etc. and run the cells at the end of this section to print your results as Pandas DataFrames.
 
-- q1: query all columns from `Pokemon` the Pokemon that have base_experience above 200
+- q1: query all columns from `Pokemon` the Pokemon that have base_experience above 200  
+
+  
 - q2: query the id, name, type1 and type2 of Pokemon that have **water** types as either their first or second type
+
+
 - q3: query the average weight of Pokemon by their first type in descending order
+
+
 - q4: query the Pokemon name, Pokemon type2, and what **type2** has "2xdamage" to
+
+
 - q5: query the top 5 most common type1s, the minimum height, maximum height, minimum weight and maximum weight of pokemon with those type1s, and what associated type they do "0.5xdamage" to
 
 
@@ -285,7 +293,7 @@ pd.read_sql(q5, cnx)
 
 Use BeautifulSoup to get quotes, authors, and tags from [Quotes to Read](http://quotes.toscrape.com/).
 
-First go to the site and inspect the page, look at what links there are and how the entire site is structured.
+Before answering these questions, go to the site and inspect the page. Make sure to look at what links there are and how the site is structured.
 
 1. Get the first author and the path for the author's page as a tuple from the [homepage](http://quotes.toscrape.com/).
 
@@ -358,7 +366,7 @@ quotes_for_mongo
 
 ## Part 5: MongoDB
 
-To do this section open a connection to a mongo database in the terminal, using `mongod` You will **create**, **update**, and **read** from a mongo database.
+To do this section, open a connection to a mongo database in the terminal, using `mongod`. You will then **create**, **update**, and **read** from a mongo database.
 
 Create and connect to a mongo database.
 
@@ -373,11 +381,11 @@ mydb = myclient['quote_database']
 mycollection = mydb['quote_collection']
 ```
 
-1. Add the quotes from `get_some_quotes` for the [homepage](http://quotes.toscrape.com/) or use the JSON file `quotes.json` for this section. To verify this get the resulting _ids back from the `results` variable.
+1. Add the quotes you obtained from the `get_some_quotes` function for the [homepage](http://quotes.toscrape.com/) to the mongo database. (You can also use the JSON file `quotes.json` to insert data into the database) To verify that you've successfully inserted the data, query it to obtain the resulting _ids back from the `results` variable. 
 
 
 ```python
-# if not using  the get_some_quotes function read in the JSON file and set it to variable data
+# if not using the get_some_quotes function read in the JSON file and set it to variable data
 
 # with open(r"data/quotes.json", "r") as r:
 #     data = json.load(r)
@@ -389,7 +397,7 @@ mycollection = mydb['quote_collection']
 results = None
 ```
 
-2. Query the database for all the quotes by `'Albert Einstein'`.
+2. Query the database for all the quotes written by `'Albert Einstein'`.
 
 
 ```python
