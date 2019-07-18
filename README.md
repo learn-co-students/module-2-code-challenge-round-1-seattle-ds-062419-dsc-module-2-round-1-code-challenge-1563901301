@@ -385,7 +385,8 @@ mycollection = mydb['quote_collection']
 
 
 ```python
-# if not using the get_some_quotes function read in the JSON file and set it to variable data
+# if you were unable to get the data from webscraping in the right format,
+# uncomment the code below to access a JSON file with the list of dictionaries
 
 # with open(r"data/quotes.json", "r") as r:
 #     data = json.load(r)
@@ -393,7 +394,7 @@ mycollection = mydb['quote_collection']
 
 
 ```python
-# results is variable th
+# use the results variable to confirm the data was inserted
 results = None
 ```
 
